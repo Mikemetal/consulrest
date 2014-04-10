@@ -8,7 +8,7 @@ class AgendaSerializer(serializers.ModelSerializer):
     #owner = serializers.Field(source='owner.username')
     class Meta:
         model = Agenda
-        fields = ('id', 'Descripcion', 'Fecha', 'HoraInicio', 'HoraFinal', 'Asistio','Cancelada')
+        fields = ('id', 'Paciente','Descripcion', 'Fecha', 'HoraInicio', 'HoraFinal', 'Asistio','Cancelada')
 
     def restore_object(self, attrs, instance=None):
         """
@@ -20,6 +20,7 @@ class AgendaSerializer(serializers.ModelSerializer):
         """
         if instance:
             # Update existing instance
+            instance.Paciente = attrs.get('Paciente', instance.Paciente)
             instance.Descripcion = attrs.get('Descripcion', instance.Descripcion)
             instance.Fecha = attrs.get('Fecha', instance.Fecha)
             instance.HoraInicio = attrs.get('HoraInicio', instance.HoraInicio)

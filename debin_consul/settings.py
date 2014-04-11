@@ -57,16 +57,14 @@ WSGI_APPLICATION = 'debin_consul.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'dairdfgh46u956',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': 'ckwkruyukarzmu',
-        'PASSWORD': '8ZC206oXTxePkgMBoHQLzDAqFv',
-        'HOST': 'ec2-54-225-243-113.compute-1.amazonaws.com',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '5432',                      # Set to empty string for default.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dc6qnorjg2ka92',
+        'HOST': 'ec2-54-243-47-196.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'pdwrqusydgnukh',
+        'PASSWORD': 'aLovyGw60duviClXju-t71Gpr5'                  # Set to empty string for default.
     }
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.

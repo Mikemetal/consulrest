@@ -6,9 +6,10 @@ from agenda.models import Agenda
 
 class AgendaSerializer(serializers.ModelSerializer):
     #owner = serializers.Field(source='owner.username')
+    paciente = serializers.RelatedField(many=False)
     class Meta:
         model = Agenda
-        fields = ('id','Descripcion', 'Fecha', 'HoraInicio', 'HoraFinal', 'Asistio','Cancelada')
+        fields = ('id','paciente','descripcion', 'fecha', 'horainicio', 'horafinal', 'asistio','cancelada')
 
     def restore_object(self, attrs, instance=None):
         """
@@ -20,13 +21,13 @@ class AgendaSerializer(serializers.ModelSerializer):
         """
         if instance:
             # Update existing instance
-           # instance.Paciente = attrs.get('Paciente', instance.Paciente)
-            instance.Descripcion = attrs.get('Descripcion', instance.Descripcion)
-            instance.Fecha = attrs.get('Fecha', instance.Fecha)
-            instance.HoraInicio = attrs.get('HoraInicio', instance.HoraInicio)
-            instance.HoraFinal = attrs.get('HoraFinal', instance.HoraFinal)
-            instance.Asistio = attrs.get('Asistio', instance.Asistio)
-            instance.Cancelada = attrs.get('Cancelada', instance.Cancelada)
+            instance.paciente = attrs.get('paciente', instance.paciente)
+            instance.descripcion = attrs.get('descripcion', instance.descripcion)
+            instance.fecha = attrs.get('fecha', instance.fecha)
+            instance.horainicio = attrs.get('horainicio', instance.horainicio)
+            instance.horafinal = attrs.get('horafinal', instance.horafinal)
+            instance.asistio = attrs.get('asistio', instance.asistio)
+            instance.cancelada = attrs.get('cancelada', instance.cancelada)
             return instance
 
         # Create new instance

@@ -8,7 +8,7 @@ class PacienteSerializer(serializers.ModelSerializer):
     #owner = serializers.Field(source='owner.username')
     class Meta:
         model = Paciente
-        fields = ('id', 'Nombre', 'FechaCreacion')
+        fields = ('id', 'nombre', 'fechacreacion')
 
     def restore_object(self, attrs, instance=None):
         """
@@ -20,8 +20,8 @@ class PacienteSerializer(serializers.ModelSerializer):
         """
         if instance:
             # Update existing instance
-            instance.Nombre = attrs.get('Nombre', instance.Nombre)
-            instance.FechaCreacion = attrs.get('FechaCreacion', instance.FechaCreacion)
+            instance.nombre = attrs.get('nombre', instance.nombre)
+            instance.fechacreacion = attrs.get('fechacreacion', instance.fechacreacion)
             return instance
 
         # Create new instance

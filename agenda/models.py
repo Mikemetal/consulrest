@@ -3,13 +3,13 @@ from paciente.models import Paciente
 
 # Create your models here.
 class Agenda(models.Model):
-	PacienteID = models.ForeignKey(Paciente)
-	Descripcion = models.CharField(max_length=50)
-	Fecha = models.DateField()
-	HoraInicio = models.TimeField()
-	HoraFinal = models.TimeField()
-	Asistio = models.BooleanField()
-	Cancelada = models.BooleanField()
+	paciente = models.ForeignKey(Paciente, related_name='paciente')
+	descripcion = models.CharField(max_length=50)
+	fecha = models.DateField()
+	horainicio = models.TimeField()
+	horafinal = models.TimeField()
+	asistio = models.BooleanField()
+	cancelada = models.BooleanField()
 
 	def __unicode__(self):
-		return self.Descripcion
+		return self.descripcion

@@ -2,7 +2,7 @@ from django.contrib import admin
 from paciente.models import Paciente
 
 class PacienteAdmin(admin.ModelAdmin):
-    list_display = ('Nombre', 'FechaCreacion')
+    list_display = ('nombre', 'fechacreacion')
   #  filter_vertical = ('Nombre',)
 
 

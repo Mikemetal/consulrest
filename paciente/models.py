@@ -5,4 +5,4 @@ class Paciente(models.Model):
 	fechacreacion = models.DateTimeField(auto_now_add=True)
 
 	def __unicode__(self):
-		return self.Nombre
+		return self.nombre

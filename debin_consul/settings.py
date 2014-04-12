@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'agenda',
     'paciente',
+    'corsheaders',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -109,7 +111,8 @@ STATIC_URL = '/static/'
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+
+DATABASES['default'] = dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -119,6 +122,7 @@ ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
 import os
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
@@ -127,6 +131,17 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',)
+# }
+
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',)
+ 'DEFAULT_PERMISSION_CLASSES': (
+     'rest_framework.permissions.AllowAny',
+ ),
+ 'DEFAULT_AUTHENTICATION_CLASSES': (
+     "django.contrib.auth.models.AnonymousUser",
+ ),
 }
+
+CORS_ORIGIN_ALLOW_ALL = True

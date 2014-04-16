@@ -15,4 +15,5 @@ urlpatterns = patterns('',
     url(r'^', include('agenda.urls')),
     url(r'^', include('paciente.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^oauth2/', include('provider.oauth2.urls', namespace = 'oauth2')),
 )

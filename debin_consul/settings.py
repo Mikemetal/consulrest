@@ -41,6 +41,8 @@ INSTALLED_APPS = (
     'agenda',
     'paciente',
     'corsheaders',
+    'provider',
+    'provider.oauth2',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -138,10 +140,10 @@ STATICFILES_DIRS = (
 
 REST_FRAMEWORK = {
  'DEFAULT_PERMISSION_CLASSES': (
-     'rest_framework.permissions.AllowAny',
+     'rest_framework.permissions.IsAuthenticated',
  ),
  'DEFAULT_AUTHENTICATION_CLASSES': (
-     "django.contrib.auth.models.AnonymousUser",
+     'rest_framework.authentication.OAuth2Authentication',
  ),
 }
 

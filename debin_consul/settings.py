@@ -41,8 +41,7 @@ INSTALLED_APPS = (
     'agenda',
     'paciente',
     'corsheaders',
-    'provider',
-    'provider.oauth2',
+    'rest_framework.authtoken',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -98,7 +97,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Tijuana'
 
 USE_I18N = True
 

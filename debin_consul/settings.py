@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'paciente',
     'corsheaders',
     'rest_framework.authtoken',
+    'south',
 )
 
 MIDDLEWARE_CLASSES = (

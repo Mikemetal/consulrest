@@ -6,6 +6,7 @@ urlpatterns = patterns('',
     url(r'^$', 'api_root'),
     url(r'^agenda/$', views.AgendaList.as_view()),
     url(r'^agenda/(?P<pk>[0-9]+)/$', views.AgendaDetail.as_view()),
+    url(r'^agendahoy/$', views.AgendaHoy.as_view()),
 )
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -1,14 +1,9 @@
-#from rest_framework import mixins
-from django.contrib.auth.models import User
 from rest_framework import generics
 from agenda.models import Agenda
 from agenda.serializer import AgendaSerializer
-from rest_framework import permissions
-#from snippets.permissions import IsOwnerOrReadOnly
-from rest_framework import renderers
-from rest_framework.decorators import api_view
+from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.reverse import reverse
+from datetime import date
 
 class AgendaList(generics.ListCreateAPIView):
     queryset = Agenda.objects.all()
@@ -26,3 +21,10 @@ class AgendaDetail(generics.RetrieveUpdateDestroyAPIView):
 
     # def pre_save(self, obj):
     #     obj.owner = self.request.user
+
+class AgendaHoy(APIView):
+
+    def get(self,request,format=None):
+        agendahoy = Agenda.objects.filter(fecha = date.today())
+        serializer = AgendaSerializer(agendahoy,many=True)
+        return Response(serializer.data)

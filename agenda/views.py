@@ -5,13 +5,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from datetime import date
 
+
 class AgendaList(generics.ListCreateAPIView):
     queryset = Agenda.objects.all()
     serializer_class = AgendaSerializer
     #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
-    #def pre_save(self, obj):
-    #    obj.owner = self.request.user
+    def pre_save(self, obj):
+        obj.usuario = self.request.user
 
 
 class AgendaDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -19,12 +20,14 @@ class AgendaDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = AgendaSerializer
     #permission_classes = (permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly,)
 
-    # def pre_save(self, obj):
-    #     obj.owner = self.request.user
+    def pre_save(self, obj):
+        obj.usuario = self.request.user
+
 
 class AgendaHoy(APIView):
-
-    def get(self,request,format=None):
-        agendahoy = Agenda.objects.filter(fecha = date.today())
-        serializer = AgendaSerializer(agendahoy,many=True)
+    def get(self, request, format=None):
+        agendahoy = Agenda.objects.filter(fecha=date.today(), usuario = request.user)
+        print(agendahoy)
+        print(agendahoy)
+        serializer = AgendaSerializer(agendahoy, many=True)
         return Response(serializer.data)

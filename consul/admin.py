@@ -3,14 +3,10 @@ from agenda.models import Agenda
 from paciente.models import Paciente
 
 class AgendaAdmin(admin.ModelAdmin):
-    list_display = ('Descripcion', 'Fecha', 'HoraInicio', 'HoraFinal','Asistio','Cancelada')
-  #  filter_vertical = ('Fecha',)
- #   actions = [export_as_csv]
- #   inlines = [EnlaceInline]
+    list_display = ('paciente','descripcion', 'fecha', 'horainicio', 'horafinal','asistio','cancelada','usuario')
 
 class PacienteAdmin(admin.ModelAdmin):
-    list_display = ('Nombre', 'FechaCreacion')
-  #  filter_vertical = ('Nombre',)
+    list_display = ('nombre', 'fechacreacion')
 
 admin.site.register(Agenda,AgendaAdmin)
 admin.site.register(Paciente,PacienteAdmin)

@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'agenda',
     'paciente',
+    'consul',
     'corsheaders',
     'rest_framework.authtoken',
     'south',
@@ -70,6 +71,15 @@ DATABASES = {
         'PORT': 5432,
         'USER': 'arvoshqgrwrzju',
         'PASSWORD': 'oe_yqOelTOrTUF9RIfXjwAXSUA'
+    },
+    'development': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'debinconsul',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': 'admin',
+        'PASSWORD': '1010101010',
+        'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '',                      # Set to empty string for default.
     }
 }
 # DATABASES = {
@@ -82,15 +92,6 @@ DATABASES = {
 #         'HOST': 'ec2-54-225-243-113.compute-1.amazonaws.com',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
 #         'PORT': '5432',                      # Set to empty string for default.
 #     }
-#     # 'default': {
-#     #     'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-#     #     'NAME': 'consul',                      # Or path to database file if using sqlite3.
-#     #     # The following settings are not used with sqlite3:
-#     #     'USER': 'admin',
-#     #     'PASSWORD': '1010101010',
-#     #     'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-#     #     'PORT': '',                      # Set to empty string for default.
-#    #heroku }
 # }
 
 # Internationalization

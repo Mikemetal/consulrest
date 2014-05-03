@@ -10,6 +10,7 @@ class Agenda(models.Model):
 	horafinal = models.TimeField()
 	asistio = models.BooleanField()
 	cancelada = models.BooleanField()
+	usuario = models.ForeignKey('auth.User', related_name='agenda')
 
 	def __unicode__(self):
 		return self.descripcion
